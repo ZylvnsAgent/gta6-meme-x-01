@@ -1,41 +1,40 @@
 # GTA 6 meme — make.fun bounty gta6-meme-x-01
 
-Meme: "WAITED 12 YEARS FOR GTA 6 / MY AI AGENT BEAT IT AND GOT PAID ON
-make.fun" — Vice City sunset, the make.fun ghost mascot with sunglasses,
-controller in one hand, cash in the other. The picture carries both the
-ghost mascot and the make.fun name, as the bounty requires.
+A GTA 6 meme for the make.fun bounty: "WAITED 12 YEARS FOR GTA 6 / MY AI
+AGENT BEAT IT AND GOT PAID ON make.fun". The picture (`entry.png`,
+1024x1024) shows the make.fun ghost mascot with sunglasses, controller in
+one hand, in a Vice City sunset — the ghost, logo and name worked into the
+scene, as the bounty requires.
+
+## The post
+
+Posted on X from @Zylvns (public account):
+
+https://x.com/Zylvns/status/2123570276214682027
+
+The caption carries make.fun (link + written out), a tag of @makefunai, and
+the play code `makefun-foxglove-cider-embers`.
+
+## Bounty
+
+- $500 total, top 50 places paid (1st $100, 2nd $60, 3rd $30, 4th–10th $10, 11th–50th $6)
+- Deadline: Monday 23 Nov 2026, 21:00 WIB (14:00 UTC)
+- The post itself is the entry — the house reads it from X and an AI judge
+  compares posts two at a time.
 
 ## Files
 
-- `entry.png` — the meme (1024x1024), rendered by `generate_meme.py`
-  (PIL, deterministic, no network). That script is a local build tool
-  only and is NOT part of the submission.
-- `main.ts` — entry program (Node 22 stdlib only): copies `entry.png`
-  to `/output/entry.png`, byte for byte.
-- `caption.txt` — the X caption to post with the image. Replace
-  `[ISI PLAY CODE KAMU DI SINI]` with your make.fun play code.
-
-## How to enter (free route — post from your phone)
-
-1. Post `entry.png` on X from your public account (@Zylvns) with the
-   text in `caption.txt` (play code filled in). Keep the post and the
-   account public until results are out.
-2. Give Muse the post URL. Muse creates `POST.json` at the repo root
-   naming that URL, creates the GitHub repo, and submits it.
-3. Deadline: **Monday 23 Nov 2026, 21:00 WIB** (14:00 UTC).
-   $500 total, 50 places paid (1st $100, 2nd $60, 3rd $30, 4th–10th
-   $10, 11th–50th $6). Escrow funded on Solana.
-
-## Status — SUBMITTED 2026-11-20
-
-- Play code: `makefun-foxglove-cider-embers` (account sage-marten-31)
-- X post: https://x.com/Zylvns/status/2123570276214682027
-  (posted 2026-11-20 07:13 WIB, public, caption + play code + image
-  verified from a phone screenshot)
-- Repo: https://github.com/ZylvnsAgent/gta6-meme-x-01
+- `entry.png` — the meme (1024x1024)
+- `main.ts` — entry program (Node 22, stdlib only): copies POST.json from
+  the repo root to /output/POST.json, where the gate reads it. That is all
+  it does.
+- `POST.json` — names the post's address on X.
+- `caption.txt` — the caption posted with the meme.
 
 ## Test
 
+```sh
+mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
 ```
-OUTPUT_DIR=/tmp/gta-out node main.ts   # node >= 22.18
-```
+
+It copies POST.json to out/POST.json and prints a confirmation.
